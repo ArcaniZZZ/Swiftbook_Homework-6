@@ -28,9 +28,9 @@ class ColorChangeViewController: UIViewController {
         super.viewDidLoad()
         colorBoxView.layer.cornerRadius = 15
         setInitialSliderValues()
-        setColorBoxColor()
         setSliderLabelsValues()
         setTexFieldsValues()
+        setColorBoxColor()
         createToolBar()
         colorBoxView.backgroundColor = colorPassedFromAnotherVC
     }
@@ -59,19 +59,22 @@ class ColorChangeViewController: UIViewController {
     
     // MARK: - Private methods
     private func setInitialSliderValues() {
-        var red: CGFloat = 0
-        var green: CGFloat = 0
-        var blue: CGFloat = 0
-        var alpha: CGFloat = 0
+        var currentRed: CGFloat = 0
+        var currentGreen: CGFloat = 0
+        var currentBlue: CGFloat = 0
+        var currentAlpha: CGFloat = 0
         
-        let colorArray = [red, green, blue]
+        colorPassedFromAnotherVC.getRed(
+            &currentRed,
+            green: &currentGreen,
+            blue: &currentBlue,
+            alpha: &currentAlpha)
         
-        colorBoxView.backgroundColor?.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        let colorArray = [currentRed, currentGreen, currentBlue]
         
         for (slider, color) in zip(colorSliders, colorArray) {
             slider.value = Float(color)
         }
-        
     }
     
     private func setSliderLabelsValues() {

@@ -20,7 +20,7 @@ class StartingPageViewController: UIViewController {
         colorSettingsVC.delegate = self
         colorSettingsVC.colorPassedFromAnotherVC = backGroundView.backgroundColor
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
