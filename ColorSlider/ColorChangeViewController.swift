@@ -15,6 +15,8 @@ class ColorChangeViewController: UIViewController {
     @IBOutlet var colorNamesLabels: [UILabel]!
     @IBOutlet var sliderValuesLabels: [UILabel]!
     
+    @IBOutlet var textFields: [UITextField]!
+    
     @IBOutlet var colorSliders: [UISlider]!
     
     // MARK: - Override functions
@@ -32,7 +34,23 @@ class ColorChangeViewController: UIViewController {
             label.text = string(from: slider)
         }
     }
-        
+    
+    @IBAction func changeColorWithTextFields(_ sender: UITextField) {
+//        for (textField, slider) in zip(textFields, colorSliders) {
+//            guard let floatValue = Float(textField.text ?? ""),
+//                  floatValue >= 0 && floatValue <= 1
+//            else { return }
+//            slider.value = floatValue
+//            setColorBoxColor()
+//
+//            for (textField, colorLabel) in zip(textFields, sliderValuesLabels) {
+//                if textField.text != "" {
+//                    colorLabel.text = textField.text
+//                }
+//            }
+//        }
+    }
+    
     // MARK: - Private methods
     private func setSliderLabelsValues() {
         for (label, slider) in zip(sliderValuesLabels, colorSliders) {
@@ -45,7 +63,7 @@ class ColorChangeViewController: UIViewController {
               let greenSlider = colorSliders.first(where: { $0.tag == 1 }),
               let blueSlider = colorSliders.first(where: { $0.tag == 2 })
         else { return }
-              
+        
         colorBoxView.backgroundColor = UIColor(
             red: CGFloat(redSlider.value),
             green: CGFloat(greenSlider.value),
@@ -59,5 +77,25 @@ class ColorChangeViewController: UIViewController {
     }
 }
 
-    
-
+// MARK: - Keyboard extensions
+extension ColorChangeViewController: UITextFieldDelegate {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        for (textField, slider) in zip(textFields, colorSliders) {
+            guard let floatValue = Float(textField.text ?? ""),
+                  floatValue >= 0 && floatValue <= 1
+            else { return }
+            slider.value = floatValue
+            setColorBoxColor()
+            
+            for (textField, colorLabel) in zip(textFields, sliderValuesLabels) {
+                if textField.text != "" {
+                    colorLabel.text = textField.text
+                }
+            }
+        }
+    }
+}
