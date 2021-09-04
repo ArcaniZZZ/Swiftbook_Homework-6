@@ -25,6 +25,8 @@ class ColorChangeViewController: UIViewController {
         colorBoxView.layer.cornerRadius = 15
         setColorBoxColor()
         setSliderLabelsValues()
+        setTexFieldsValues()
+        createToolBar()
     }
     
     // MARK: - IB Actions
@@ -33,28 +35,56 @@ class ColorChangeViewController: UIViewController {
         for (label, slider) in zip(sliderValuesLabels, colorSliders) {
             label.text = string(from: slider)
         }
+        
+        for (textField, slider) in zip(textFields, colorSliders) {
+            textField.text = string(from: slider)
+        }
     }
     
     @IBAction func changeColorWithTextFields(_ sender: UITextField) {
-//        for (textField, slider) in zip(textFields, colorSliders) {
-//            guard let floatValue = Float(textField.text ?? ""),
-//                  floatValue >= 0 && floatValue <= 1
-//            else { return }
-//            slider.value = floatValue
-//            setColorBoxColor()
-//
-//            for (textField, colorLabel) in zip(textFields, sliderValuesLabels) {
-//                if textField.text != "" {
-//                    colorLabel.text = textField.text
-//                }
-//            }
-//        }
     }
+    // НЕ ЗАБЫТЬ УДАЛИТЬ ЭТОТ МЕТОД
     
     // MARK: - Private methods
     private func setSliderLabelsValues() {
         for (label, slider) in zip(sliderValuesLabels, colorSliders) {
             label.text = string(from: slider)
+        }
+    }
+    
+    private func setTexFieldsValues() {
+        for (textField, label) in zip(textFields, sliderValuesLabels) {
+            textField.text = label.text
+        }
+    }
+    
+    private func createToolBar() {
+        let toolBar = UIToolbar(frame: CGRect(
+                                    x: 0,
+                                    y: 0,
+                                    width: view.frame.size.width,
+                                    height: 50))
+        
+        let flexibleSpace = UIBarButtonItem(
+            barButtonSystemItem: .flexibleSpace,
+            target: self,
+            action: nil)
+        
+        let doneButton = UIBarButtonItem(
+            title: "Done",
+            style: .plain,
+            target: self,
+            action: #selector(didTapDone))
+        
+        toolBar.items = [flexibleSpace, doneButton]
+        toolBar.sizeToFit()
+        
+        textFields.forEach { $0.inputAccessoryView = toolBar }
+    }
+    
+    @objc private func didTapDone() {
+        for field in textFields {
+            field.resignFirstResponder()
         }
     }
     
@@ -84,6 +114,7 @@ extension ColorChangeViewController: UITextFieldDelegate {
         view.endEditing(true)
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
+        
         for (textField, slider) in zip(textFields, colorSliders) {
             guard let floatValue = Float(textField.text ?? ""),
                   floatValue >= 0 && floatValue <= 1
@@ -99,3 +130,6 @@ extension ColorChangeViewController: UITextFieldDelegate {
         }
     }
 }
+
+
+
