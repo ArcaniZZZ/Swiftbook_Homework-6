@@ -15,7 +15,13 @@ class ColorChangeViewController: UIViewController {
     @IBOutlet var colorNamesLabels: [UILabel]!
     @IBOutlet var sliderValuesLabels: [UILabel]!
     
-    @IBOutlet var textFields: [UITextField]!
+    @IBOutlet var textFields: [UITextField]! {
+        didSet {
+            for (textField, label) in zip(textFields, sliderValuesLabels) {
+                label.text = textField.text ?? ""
+            }
+        }
+    }
     
     @IBOutlet var colorSliders: [UISlider]!
     
@@ -135,10 +141,31 @@ class ColorChangeViewController: UIViewController {
     private func string(from slider: UISlider) -> String {
         String(format: "%.2f", slider.value)
     }
+    
+    private func showAlert(
+        title: String = "Wrong Entry!",
+        message: String = "The value should be from 0 to 1 inclusive",
+        textField: UITextField? = nil) {
+        
+        let alert = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(
+            title: "OK",
+            style: .default) { _ in
+            textField?.text = "0"
+        }
+        
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
 }
 
 // MARK: - Keyboard extensions
 extension ColorChangeViewController: UITextFieldDelegate {
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
@@ -147,17 +174,10 @@ extension ColorChangeViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         for (textField, slider) in zip(textFields, colorSliders) {
             guard let floatValue = Float(textField.text ?? ""),
-                  floatValue >= 0 && floatValue <= 1
-            else { return }
+                  floatValue <= 1
+            else { showAlert(textField: textField); return }
             slider.value = floatValue
-            
             setColorBoxColor()
-            
-            for (textField, colorLabel) in zip(textFields, sliderValuesLabels) {
-                if textField.text != "" {
-                    colorLabel.text = textField.text
-                }
-            }
         }
     }
 }
