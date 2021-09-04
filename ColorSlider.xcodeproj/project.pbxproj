@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		EAD6D72E26E39D3200E02C05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD6D72D26E39D3200E02C05 /* AppDelegate.swift */; };
 		EAD6D73026E39D3200E02C05 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD6D72F26E39D3200E02C05 /* SceneDelegate.swift */; };
-		EAD6D73226E39D3200E02C05 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD6D73126E39D3200E02C05 /* ViewController.swift */; };
+		EAD6D73226E39D3200E02C05 /* ColorChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD6D73126E39D3200E02C05 /* ColorChangeViewController.swift */; };
 		EAD6D73526E39D3200E02C05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAD6D73326E39D3200E02C05 /* Main.storyboard */; };
 		EAD6D73726E39D3300E02C05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAD6D73626E39D3300E02C05 /* Assets.xcassets */; };
 		EAD6D73A26E39D3300E02C05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAD6D73826E39D3300E02C05 /* LaunchScreen.storyboard */; };
@@ -19,7 +19,7 @@
 		EAD6D72A26E39D3200E02C05 /* ColorSlider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorSlider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAD6D72D26E39D3200E02C05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAD6D72F26E39D3200E02C05 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EAD6D73126E39D3200E02C05 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EAD6D73126E39D3200E02C05 /* ColorChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorChangeViewController.swift; sourceTree = "<group>"; };
 		EAD6D73426E39D3200E02C05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EAD6D73626E39D3300E02C05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EAD6D73926E39D3300E02C05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,7 +58,7 @@
 			children = (
 				EAD6D72D26E39D3200E02C05 /* AppDelegate.swift */,
 				EAD6D72F26E39D3200E02C05 /* SceneDelegate.swift */,
-				EAD6D73126E39D3200E02C05 /* ViewController.swift */,
+				EAD6D73126E39D3200E02C05 /* ColorChangeViewController.swift */,
 				EAD6D73326E39D3200E02C05 /* Main.storyboard */,
 				EAD6D73626E39D3300E02C05 /* Assets.xcassets */,
 				EAD6D73826E39D3300E02C05 /* LaunchScreen.storyboard */,
@@ -137,7 +137,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EAD6D73226E39D3200E02C05 /* ViewController.swift in Sources */,
+				EAD6D73226E39D3200E02C05 /* ColorChangeViewController.swift in Sources */,
 				EAD6D72E26E39D3200E02C05 /* AppDelegate.swift in Sources */,
 				EAD6D73026E39D3200E02C05 /* SceneDelegate.swift in Sources */,
 			);

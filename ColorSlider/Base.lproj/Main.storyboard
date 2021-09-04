@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Color Change View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ColorSlider" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ColorChangeViewController" customModule="ColorSlider" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,19 +29,19 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="88D-7K-cOy">
                                                 <rect key="frame" x="0.0" y="0.0" width="44" height="130"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="OJ5-5Z-aVE">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Red" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="OJ5-5Z-aVE">
                                                         <rect key="frame" x="0.0" y="0.0" width="44" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="zHi-wa-RpZ">
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Green" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="zHi-wa-RpZ">
                                                         <rect key="frame" x="0.0" y="50" width="44" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dq9-Rp-Fqp">
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dq9-Rp-Fqp">
                                                         <rect key="frame" x="0.0" y="100" width="44" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -61,13 +61,13 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="KAx-lb-Q4g">
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="KAx-lb-Q4g">
                                                         <rect key="frame" x="0.0" y="50" width="40" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="B4u-Zz-wIs">
+                                                    <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="B4u-Zz-wIs">
                                                         <rect key="frame" x="0.0" y="100" width="40" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -83,12 +83,21 @@
                                                 <subviews>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Q5z-Rl-Fhd">
                                                         <rect key="frame" x="-2" y="0.0" width="282" height="31"/>
+                                                        <connections>
+                                                            <action selector="changeColorWithSliders:" destination="BYZ-38-t0r" eventType="valueChanged" id="OX3-mc-26n"/>
+                                                        </connections>
                                                     </slider>
-                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ckb-u9-HZT">
+                                                    <slider opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ckb-u9-HZT">
                                                         <rect key="frame" x="-2" y="50" width="282" height="31"/>
+                                                        <connections>
+                                                            <action selector="changeColorWithSliders:" destination="BYZ-38-t0r" eventType="valueChanged" id="JZT-Me-zSV"/>
+                                                        </connections>
                                                     </slider>
-                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="cas-v0-abA">
+                                                    <slider opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="cas-v0-abA">
                                                         <rect key="frame" x="-2" y="100" width="282" height="31"/>
+                                                        <connections>
+                                                            <action selector="changeColorWithSliders:" destination="BYZ-38-t0r" eventType="valueChanged" id="6Jf-so-xcC"/>
+                                                        </connections>
                                                     </slider>
                                                 </subviews>
                                             </stackView>
@@ -106,6 +115,18 @@
                             <constraint firstItem="THG-va-3A7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="qtd-yN-zZK"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="colorBoxView" destination="a3g-5d-taN" id="ZBx-ow-GpD"/>
+                        <outletCollection property="colorNamesLabels" destination="OJ5-5Z-aVE" collectionClass="NSMutableArray" id="oTV-Yv-rYl"/>
+                        <outletCollection property="colorNamesLabels" destination="zHi-wa-RpZ" collectionClass="NSMutableArray" id="tw6-h3-qlm"/>
+                        <outletCollection property="colorNamesLabels" destination="dq9-Rp-Fqp" collectionClass="NSMutableArray" id="3ZO-OB-pUX"/>
+                        <outletCollection property="sliderValuesLabels" destination="NFs-ZR-sp2" collectionClass="NSMutableArray" id="jS5-zl-FZC"/>
+                        <outletCollection property="sliderValuesLabels" destination="KAx-lb-Q4g" collectionClass="NSMutableArray" id="nuN-IA-6rG"/>
+                        <outletCollection property="sliderValuesLabels" destination="B4u-Zz-wIs" collectionClass="NSMutableArray" id="FKL-FO-0hT"/>
+                        <outletCollection property="colorSliders" destination="Q5z-Rl-Fhd" collectionClass="NSMutableArray" id="bLy-jx-OAU"/>
+                        <outletCollection property="colorSliders" destination="ckb-u9-HZT" collectionClass="NSMutableArray" id="VF4-Wt-zO7"/>
+                        <outletCollection property="colorSliders" destination="cas-v0-abA" collectionClass="NSMutableArray" id="TWR-6L-nDk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
