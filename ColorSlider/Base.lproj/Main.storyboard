@@ -21,7 +21,7 @@
                     <navigationItem key="navigationItem" id="oaB-Zl-1vg">
                         <barButtonItem key="rightBarButtonItem" image="sparkles" catalog="system" id="EyV-QG-TLf">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="CYt-fT-vLh"/>
+                                <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="NoA-v5-Jmt"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -39,7 +39,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="THG-va-3A7">
-                                <rect key="frame" x="16" y="64" width="288" height="222"/>
+                                <rect key="frame" x="16" y="20" width="288" height="222"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a3g-5d-taN">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="90"/>
