@@ -7,12 +7,29 @@
 
 import UIKit
 
+protocol ColorChangeViewControllerDelegate {
+    func getColor(colorOf: UIColor)
+}
+
 class StartingPageViewController: UIViewController {
+    
+    @IBOutlet var backGroundView: UIView!
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let colorSettingsVC = segue.destination as? ColorChangeViewController else { return }
+        colorSettingsVC.delegate = self
+        colorSettingsVC.colorPassedFromAnotherVC = backGroundView.backgroundColor
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-    
 }
+
+extension StartingPageViewController: ColorChangeViewControllerDelegate {
+    func getColor(colorOf: UIColor) {
+        backGroundView.backgroundColor = colorOf
+    }
+}
+
+

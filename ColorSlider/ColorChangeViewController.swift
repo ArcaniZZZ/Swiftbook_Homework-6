@@ -19,14 +19,20 @@ class ColorChangeViewController: UIViewController {
     
     @IBOutlet var colorSliders: [UISlider]!
     
+    // MARK: - Private Properties
+    var delegate: ColorChangeViewControllerDelegate!
+    var colorPassedFromAnotherVC: UIColor!
+    
     // MARK: - Override functions
     override func viewDidLoad() {
         super.viewDidLoad()
         colorBoxView.layer.cornerRadius = 15
+        setInitialSliderValues()
         setColorBoxColor()
         setSliderLabelsValues()
         setTexFieldsValues()
         createToolBar()
+        colorBoxView.backgroundColor = colorPassedFromAnotherVC
     }
     
     // MARK: - IB Actions
@@ -41,7 +47,33 @@ class ColorChangeViewController: UIViewController {
         }
     }
     
+    @IBAction func pushDoneButton() {
+        delegate.getColor(colorOf: colorBoxView.backgroundColor ?? UIColor(
+                            red: 0,
+                            green: 0,
+                            blue: 0,
+                            alpha: 1))
+        dismiss(animated: true)
+    }
+    
+    
     // MARK: - Private methods
+    private func setInitialSliderValues() {
+        var red: CGFloat = 0
+        var green: CGFloat = 0
+        var blue: CGFloat = 0
+        var alpha: CGFloat = 0
+        
+        let colorArray = [red, green, blue]
+        
+        colorBoxView.backgroundColor?.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        
+        for (slider, color) in zip(colorSliders, colorArray) {
+            slider.value = Float(color)
+        }
+        
+    }
+    
     private func setSliderLabelsValues() {
         for (label, slider) in zip(sliderValuesLabels, colorSliders) {
             label.text = string(from: slider)
@@ -103,6 +135,7 @@ class ColorChangeViewController: UIViewController {
     }
 }
 
+
 // MARK: - Keyboard extensions
 extension ColorChangeViewController: UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -127,5 +160,14 @@ extension ColorChangeViewController: UITextFieldDelegate {
     }
 }
 
-
-
+extension UIColor {
+    var rgba: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
+        var red: CGFloat = 0
+        var green: CGFloat = 0
+        var blue: CGFloat = 0
+        var alpha: CGFloat = 0
+        getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        
+        return (red, green, blue, alpha)
+    }
+}

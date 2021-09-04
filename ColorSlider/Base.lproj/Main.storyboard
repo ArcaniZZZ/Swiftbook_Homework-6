@@ -25,6 +25,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="backGroundView" destination="RZO-1Z-1Uc" id="Lly-Bn-7oi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pZv-lI-jrO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -39,14 +42,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="THG-va-3A7">
-                                <rect key="frame" x="16" y="20" width="288" height="222"/>
+                                <rect key="frame" x="16" y="20" width="288" height="242"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a3g-5d-taN">
-                                        <rect key="frame" x="0.0" y="0.0" width="288" height="90"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="110"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Bca-WR-53z">
-                                        <rect key="frame" x="0.0" y="100" width="288" height="122"/>
+                                        <rect key="frame" x="0.0" y="120" width="288" height="122"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="88D-7K-cOy">
                                                 <rect key="frame" x="0.0" y="0.0" width="44" height="122"/>
@@ -156,13 +159,23 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zch-ra-bVh">
+                                <rect key="frame" x="125" y="362" width="70" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="pushDoneButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="aYd-Cb-Rtj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGrayColor"/>
                         <constraints>
+                            <constraint firstItem="a3g-5d-taN" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.193662" id="5v2-Ha-349"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="THG-va-3A7" secondAttribute="trailing" constant="16" id="LEl-Lh-HDd"/>
+                            <constraint firstItem="Zch-ra-bVh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MoG-8j-69v"/>
+                            <constraint firstItem="Zch-ra-bVh" firstAttribute="top" secondItem="THG-va-3A7" secondAttribute="bottom" constant="100" id="SzB-2u-Uz3"/>
                             <constraint firstItem="THG-va-3A7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="oYg-RA-4pD"/>
-                            <constraint firstItem="a3g-5d-taN" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.158451" id="omS-1f-hvi"/>
                             <constraint firstItem="THG-va-3A7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="qtd-yN-zZK"/>
                         </constraints>
                     </view>
