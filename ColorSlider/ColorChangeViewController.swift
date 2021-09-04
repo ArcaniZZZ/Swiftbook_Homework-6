@@ -41,10 +41,6 @@ class ColorChangeViewController: UIViewController {
         }
     }
     
-    @IBAction func changeColorWithTextFields(_ sender: UITextField) {
-    }
-    // НЕ ЗАБЫТЬ УДАЛИТЬ ЭТОТ МЕТОД
-    
     // MARK: - Private methods
     private func setSliderLabelsValues() {
         for (label, slider) in zip(sliderValuesLabels, colorSliders) {
