@@ -69,9 +69,9 @@ class ColorChangeViewController: UIViewController {
             blue: &currentBlue,
             alpha: &currentAlpha)
         
-        let colorArray = [currentRed, currentGreen, currentBlue]
+        let currentColors = [currentRed, currentGreen, currentBlue]
         
-        for (slider, color) in zip(colorSliders, colorArray) {
+        for (slider, color) in zip(colorSliders, currentColors) {
             slider.value = Float(color)
         }
     }
