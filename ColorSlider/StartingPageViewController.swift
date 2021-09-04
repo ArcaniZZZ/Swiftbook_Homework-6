@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ColorChangeViewControllerDelegate {
-    func getColor(colorOf: UIColor)
+    func getColor(of colorOfView: UIColor)
 }
 
 class StartingPageViewController: UIViewController {
@@ -27,8 +27,8 @@ class StartingPageViewController: UIViewController {
 }
 
 extension StartingPageViewController: ColorChangeViewControllerDelegate {
-    func getColor(colorOf: UIColor) {
-        backGroundView.backgroundColor = colorOf
+    func getColor(of colorOfView: UIColor) {
+        backGroundView.backgroundColor = colorOfView
     }
 }
 

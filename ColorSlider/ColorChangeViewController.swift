@@ -48,15 +48,14 @@ class ColorChangeViewController: UIViewController {
     }
     
     @IBAction func pushDoneButton() {
-        delegate.getColor(colorOf: colorBoxView.backgroundColor ?? UIColor(
+        delegate.getColor(of: colorBoxView.backgroundColor ?? UIColor(
                             red: 0,
                             green: 0,
                             blue: 0,
                             alpha: 1))
         dismiss(animated: true)
     }
-    
-    
+
     // MARK: - Private methods
     private func setInitialSliderValues() {
         var currentRed: CGFloat = 0
@@ -89,6 +88,20 @@ class ColorChangeViewController: UIViewController {
         }
     }
     
+    private func setColorBoxColor() {
+        guard let redSlider = colorSliders.first(where: { $0.tag == 0 }),
+              let greenSlider = colorSliders.first(where: { $0.tag == 1 }),
+              let blueSlider = colorSliders.first(where: { $0.tag == 2 })
+        else { return }
+        
+        colorBoxView.backgroundColor = UIColor(
+            red: CGFloat(redSlider.value),
+            green: CGFloat(greenSlider.value),
+            blue: CGFloat(blueSlider.value),
+            alpha: 1
+        )
+    }
+    
     private func createToolBar() {
         let toolBar = UIToolbar(frame: CGRect(
                                     x: 0,
@@ -119,25 +132,10 @@ class ColorChangeViewController: UIViewController {
         }
     }
     
-    private func setColorBoxColor() {
-        guard let redSlider = colorSliders.first(where: { $0.tag == 0 }),
-              let greenSlider = colorSliders.first(where: { $0.tag == 1 }),
-              let blueSlider = colorSliders.first(where: { $0.tag == 2 })
-        else { return }
-        
-        colorBoxView.backgroundColor = UIColor(
-            red: CGFloat(redSlider.value),
-            green: CGFloat(greenSlider.value),
-            blue: CGFloat(blueSlider.value),
-            alpha: 1
-        )
-    }
-    
     private func string(from slider: UISlider) -> String {
         String(format: "%.2f", slider.value)
     }
 }
-
 
 // MARK: - Keyboard extensions
 extension ColorChangeViewController: UITextFieldDelegate {
@@ -145,13 +143,14 @@ extension ColorChangeViewController: UITextFieldDelegate {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
     }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
-        
         for (textField, slider) in zip(textFields, colorSliders) {
             guard let floatValue = Float(textField.text ?? ""),
                   floatValue >= 0 && floatValue <= 1
             else { return }
             slider.value = floatValue
+            
             setColorBoxColor()
             
             for (textField, colorLabel) in zip(textFields, sliderValuesLabels) {
@@ -160,17 +159,5 @@ extension ColorChangeViewController: UITextFieldDelegate {
                 }
             }
         }
-    }
-}
-
-extension UIColor {
-    var rgba: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
-        var red: CGFloat = 0
-        var green: CGFloat = 0
-        var blue: CGFloat = 0
-        var alpha: CGFloat = 0
-        getRed(&red, green: &green, blue: &blue, alpha: &alpha)
-        
-        return (red, green, blue, alpha)
     }
 }
