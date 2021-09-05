@@ -15,13 +15,7 @@ class ColorChangeViewController: UIViewController {
     @IBOutlet var colorNamesLabels: [UILabel]!
     @IBOutlet var sliderValuesLabels: [UILabel]!
     
-    @IBOutlet var textFields: [UITextField]! {
-        didSet {
-            for (textField, label) in zip(textFields, sliderValuesLabels) {
-                label.text = textField.text ?? ""
-            }
-        }
-    }
+    @IBOutlet var textFields: [UITextField]!
     
     @IBOutlet var colorSliders: [UISlider]!
     
